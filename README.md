@@ -3,7 +3,7 @@
 
 # URL
 
-[Dockerを使ってMySQLをローカルで動かす方法](https://yossi-note.com/How_to_run_MySQL_locally_using_Docker/)
+[DockerとFlywayで簡単にデータベースをマイグレーションする方法](https://yossi-note.com/how_to_easily_interpret_databases_with_docker_and_flyway/)
 
 # Usage
 
