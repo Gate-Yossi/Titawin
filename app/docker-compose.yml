@@ -4,6 +4,7 @@ services:
   app:
     build: .
     container_name: amzn-linux-2-app
+    platform: linux/x86_64
     privileged: true
     volumes:
       - ./info.php:/var/www/html/info.php
