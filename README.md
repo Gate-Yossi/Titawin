@@ -3,8 +3,7 @@
 
 # URL
 
-[CodeIgniterでコントローラの追加とURLからindex.phpを除去する方法
-](https://yossi-note.com/how_to_add_controller_and_remove_index-php_from_url_in_codeigniter/)
+[https://yossi-note.com/codeigniter_environment_construction_method_introduction_of_tideways_xhprof/](https://yossi-note.com/codeigniter_environment_construction_method_introduction_of_tideways_xhprof/)
 
 # Usage
 
