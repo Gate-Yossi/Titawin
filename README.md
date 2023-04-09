@@ -15,6 +15,10 @@ docker compose up -d
 ```
 
 ```bash
-# ログインできれば成功
-mysql -u root -p -h 127.0.0.1 -P 3306 --protocol=tcp 
+# テーブル作成とデータ登録
+docker compose run --rm flyway-info
+docker compose run --rm flyway-baseline
+docker compose run --rm flyway-migrate
+# 登録したデータが表示されていれば、OK
+mysql -u root -p -h localhost -P 3306 -D sample --protocol=tcp -e "select * from sample;"
 ```
