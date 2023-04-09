@@ -14,5 +14,6 @@ services:
       - ./.htaccess:/var/www/html/.htaccess
       - ./httpd.conf:/etc/httpd/conf/httpd.conf
       - ./xhprof-html.conf:/etc/httpd/conf.modules.d/xhprof-html.conf
+      - ./xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
     ports:
       - 8080:80
