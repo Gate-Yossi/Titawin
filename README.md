@@ -9,7 +9,7 @@
 
 ```bash
 git clone git@github.com:Gate-Yossi/Titawin.git
-cd Titawin/web
+cd Titawin/app
 docker compose build
 ```
 
