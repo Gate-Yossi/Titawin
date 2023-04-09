@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    container_name: amzn-linux-2-web
+    privileged: true
+    ports:
+      - 8080:80
