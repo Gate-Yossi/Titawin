@@ -19,10 +19,19 @@ RUN yum install -y php74-php
 RUN yum install -y php74-php-fpm
 RUN yum install -y php74-php-pear
 RUN yum install -y php74-php-devel
+RUN yum install -y php74-php-mbstring
 RUN ln -s /usr/bin/php74 /usr/bin/php \
  && ln -s /opt/remi/php74/root/usr/bin/phpize     /usr/bin/phpize \
  && ln -s /opt/remi/php74/root/usr/bin/php-config /usr/bin/php-config \
  && ln -s /opt/remi/php74/root/usr/bin/pecl /usr/bin/pecl
+
+# composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+COPY ./CodeIgniter-3.1.13/composer.json /var/www/composer.json
+
+RUN cd /var/www \
+ && composer install
 
 # xhprof
 RUN cd /tmp \
