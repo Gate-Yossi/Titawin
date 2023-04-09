@@ -17,10 +17,12 @@ RUN yum install -y 'http://rpms.famillecollet.com/enterprise/remi-release-7.rpm'
 RUN yum install -y php74
 RUN yum install -y php74-php
 RUN yum install -y php74-php-fpm
+RUN yum install -y php74-php-pear
 RUN yum install -y php74-php-devel
 RUN ln -s /usr/bin/php74 /usr/bin/php \
  && ln -s /opt/remi/php74/root/usr/bin/phpize     /usr/bin/phpize \
- && ln -s /opt/remi/php74/root/usr/bin/php-config /usr/bin/php-config
+ && ln -s /opt/remi/php74/root/usr/bin/php-config /usr/bin/php-config \
+ && ln -s /opt/remi/php74/root/usr/bin/pecl /usr/bin/pecl
 
 # xhprof
 RUN cd /tmp \
@@ -42,6 +44,9 @@ RUN cd /var/www/ \
  && git clone https://github.com/sters/xhprof-html.git ./xhprof-html \
  && cd ./xhprof-html \
  && sed -i "81c\$xhprof_runs_impl = new XHProfRuns_Default('\/var\/log\/xhprof');" callgraph.php
+
+# xdebug
+RUN pecl install xdebug-3.1.6
 
 # httpd
 RUN systemctl enable httpd

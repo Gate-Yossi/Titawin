@@ -3,8 +3,7 @@
 
 # URL
 
-[https://yossi-note.com/codeigniter_environment_construction_method_introduction_of_tideways_xhprof/](https://yossi-note.com/codeigniter_environment_construction_method_introduction_of_tideways_xhprof/)
-
+[CodeIgniterの環境構築方法：xdebugの導入](https://yossi-note.com/codeigniter_environment_construction_method_installing_xdebug/)
 # Usage
 
 ```bash
