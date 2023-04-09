@@ -3,7 +3,8 @@
 
 # URL
 
-[DockerとFlywayで簡単にデータベースをマイグレーションする方法](https://yossi-note.com/how_to_easily_interpret_databases_with_docker_and_flyway/)
+[CodeIgniterでコントローラの追加とURLからindex.phpを除去する方法
+](https://yossi-note.com/how_to_add_controller_and_remove_index-php_from_url_in_codeigniter/)
 
 # Usage
 
@@ -14,11 +15,4 @@ docker compose build
 docker compose up -d
 ```
 
-```bash
-# テーブル作成とデータ登録
-docker compose run --rm flyway-info
-docker compose run --rm flyway-baseline
-docker compose run --rm flyway-migrate
-# 登録したデータが表示されていれば、OK
-mysql -u root -p -h localhost -P 3306 -D sample --protocol=tcp -e "select * from sample;"
-```
+ブラウザで `http://localhost:8080/Blog` にアクセスする。
