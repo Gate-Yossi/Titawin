@@ -16,3 +16,7 @@ docker compose up -d
 ```
 
 ブラウザで `http://localhost:8080/Blog` にアクセスする。
+
+# Xhprof
+
+ブラウザで `http://localhost:8080/xhprof/?dir=/var/log/xhprof` にアクセスする。
