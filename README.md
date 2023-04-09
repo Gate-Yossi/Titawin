@@ -3,7 +3,7 @@
 
 # URL
 
-[なぜ？dockerでPHPをインストールするときにエラーにならない！？](https://yossi-note.com/why_no_error_when_installing_php_with_docker/)
+[DockerでAmazon Linux 2をベースにしたApache HTTP ServerとPHP 7.4を簡単にインストールする方法](https://yossi-note.com/how_to_easily_install_apache_http_server_and_php74_based_on_amazon_linux_2_with_docker/)
 
 # Usage
 
@@ -11,6 +11,7 @@
 git clone git@github.com:Gate-Yossi/Titawin.git
 cd Titawin/app
 docker compose build
+docker compose up -d
 ```
 
-エラーになります。
+ブラウザで `http://localhost:8080/info.php` にアクセスする。
