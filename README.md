@@ -3,7 +3,7 @@
 
 # URL
 
-[Amazon Linux 2のDockerイメージでApacheを起動する方法と、発生したエラーの解消方法](https://yossi-note.com/how_to_start_apache_in_a_docker_image_on_amazon_linux_2/)
+[なぜ？dockerでPHPをインストールするときにエラーにならない！？](https://yossi-note.com/why_no_error_when_installing_php_with_docker/)
 
 # Usage
 
@@ -11,7 +11,6 @@
 git clone git@github.com:Gate-Yossi/Titawin.git
 cd Titawin/web
 docker compose build
-docker compose up -d
 ```
 
-起動したらブラウザで `http://localhost:8080/` にアクセスする。
+エラーになります。
