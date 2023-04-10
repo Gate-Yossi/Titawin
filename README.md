@@ -3,7 +3,7 @@
 
 # URL
 
-[CodeIgniterの環境構築方法：PHPUnitの導入](https://yossi-note.com/codeigniter_environment_construction_method_installing_phpunit/)
+[CodeIgniterの環境構築方法：MySQLの導入](https://yossi-note.com/codeigniter_environment_construction_method_installing_mysql/)
 
 # Usage
 
@@ -12,9 +12,11 @@ git clone git@github.com:Gate-Yossi/Titawin.git
 cd Titawin/app
 docker compose build
 docker compose up -d
+docker compose run --rm flyway-baseline
+docker compose run --rm flyway-migrate
 ```
 
-ブラウザで `http://localhost:8080/Blog` にアクセスする。
+ブラウザで `http://localhost:8080/Sample` にアクセスする。
 
 # Test
 
