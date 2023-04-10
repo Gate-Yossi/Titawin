@@ -1,19 +1,64 @@
 version: '3'
 
+x-template: &flyway-cmd
+  build: ./flyway
+  volumes:
+    - ./flyway/sql:/flyway/sql
+    - ./flyway/conf:/flyway/conf
+  depends_on:
+    - mysql
+  profiles:
+    - flyway
+  networks:
+    - net
+
 services:
-  app:
-    build: .
-    container_name: amzn-linux-2-app
+
+  web:
+    build: ./web
+    container_name: web
     platform: linux/x86_64
     privileged: true
     volumes:
-      - ./CodeIgniter-3.1.13/application:/var/www/application
-      - ./CodeIgniter-3.1.13/system:/var/www/system
-      - ./index.php:/var/www/html/index.php
-      - ./info.php:/var/www/html/info.php
-      - ./.htaccess:/var/www/html/.htaccess
-      - ./httpd.conf:/etc/httpd/conf/httpd.conf
-      - ./xhprof-html.conf:/etc/httpd/conf.modules.d/xhprof-html.conf
-      - ./xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
+      - ./web/CodeIgniter-3.1.13/application:/var/www/application
+      - ./web/CodeIgniter-3.1.13/system:/var/www/system
+      - ./web/index.php:/var/www/html/index.php
+      - ./web/info.php:/var/www/html/info.php
+      - ./web/.htaccess:/var/www/html/.htaccess
+      - ./web/httpd.conf:/etc/httpd/conf/httpd.conf
+      - ./web/xhprof-html.conf:/etc/httpd/conf.modules.d/xhprof-html.conf
+      - ./web/xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
     ports:
       - 8080:80
+    networks:
+      - net
+
+  mysql:
+    build: ./mysql
+    container_name: mysql
+    platform: linux/x86_64
+    ports:
+      - 127.0.0.1:3306:3306
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: ${TZ}
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - net
+
+  flyway-baseline:
+    <<: *flyway-cmd
+    command: baseline
+
+  flyway-migrate:
+    <<: *flyway-cmd
+    command: migrate
+
+  flyway-info:
+    <<: *flyway-cmd
+    command: info
+
+networks:
+  net:
