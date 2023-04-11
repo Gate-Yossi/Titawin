@@ -1,2 +1,3 @@
 _ci_phpunit_test/tmp/
 build/
+.phpunit.result.cache
