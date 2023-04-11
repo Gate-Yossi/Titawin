@@ -3,7 +3,7 @@
 
 # URL
 
-[CodeIgniterの環境構築方法：MySQLの導入](https://yossi-note.com/codeigniter_environment_construction_method_installing_mysql/)
+[CodeIgniterの環境構築方法：DBの単体テスト導入](https://yossi-note.com/CodeIgniter_environment_construction_method_DB_unit_test_introduction/)
 
 # Usage
 
@@ -16,12 +16,15 @@ docker compose run --rm flyway-baseline
 docker compose run --rm flyway-migrate
 ```
 
-ブラウザで `http://localhost:8080/Sample` にアクセスする。
+ブラウザで `http://localhost:8080` にアクセスする。
 
 # Test
 
 ```bash
-docker-compose run app sh -c "cd /var/www/application/tests && /var/www/vendor/bin/phpunit"
+docker compose run --rm flyway-cmd info     -configFiles=/flyway/conf/flyway-test.conf
+docker compose run --rm flyway-cmd baseline -configFiles=/flyway/conf/flyway-test.conf
+docker compose run --rm flyway-cmd migrate  -configFiles=/flyway/conf/flyway-test.conf
+docker-compose run web sh -c "cd /var/www/application/tests && /var/www/vendor/bin/phpunit"
 ```
 
 # Xhprof

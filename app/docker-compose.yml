@@ -12,6 +12,14 @@ x-template: &flyway-cmd
   networks:
     - net
 
+x-mysql: &mysql-base
+  build: ./mysql
+  platform: linux/x86_64
+  volumes:
+    - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+  networks:
+    - net
+
 services:
 
   web:
@@ -34,19 +42,27 @@ services:
       - net
 
   mysql:
-    build: ./mysql
+    <<: *mysql-base
     container_name: mysql
-    platform: linux/x86_64
     ports:
       - 127.0.0.1:3306:3306
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       TZ: ${TZ}
-    volumes:
-      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    networks:
-      - net
+
+  mysql-test:
+    <<: *mysql-base
+    container_name: mysql-test
+    ports:
+      - 127.0.0.1:3307:3306
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}_test
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: ${TZ}
+
+  flyway-cmd:
+    <<: *flyway-cmd
 
   flyway-baseline:
     <<: *flyway-cmd
