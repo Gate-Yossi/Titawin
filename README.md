@@ -27,6 +27,12 @@ docker compose run --rm flyway-cmd migrate  -configFiles=/flyway/conf/flyway-tes
 docker-compose run web sh -c "cd /var/www/application/tests && /var/www/vendor/bin/phpunit"
 ```
 
+# Schemaspy
+
+```bash
+docker compose run --rm schemaspy-cmd
+```
+
 # Xhprof
 
 ブラウザで `http://localhost:8080/xhprof/?dir=/var/log/xhprof` にアクセスする。

@@ -12,6 +12,20 @@ x-template: &flyway-cmd
   networks:
     - net
 
+x-schemaspy-cmd: &schemaspy-cmd
+  build: ./schemaspy
+  volumes:
+    - ./schemaspy/local.properties:/schemaspy.properties
+    - ./schemaspy/output:/output
+  environment:
+    SCHEMASPY_OUTPUT: /output
+  depends_on:
+    - mysql
+  profiles:
+    - schemaspy
+  networks:
+    - net
+
 x-mysql: &mysql-base
   build: ./mysql
   platform: linux/x86_64
@@ -75,6 +89,9 @@ services:
   flyway-info:
     <<: *flyway-cmd
     command: info
+
+  schemaspy-cmd:
+    <<: *schemaspy-cmd
 
 networks:
   net:
