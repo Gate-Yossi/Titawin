@@ -6,7 +6,8 @@ x-template: &flyway-cmd
     - ./flyway/sql:/flyway/sql
     - ./flyway/conf:/flyway/conf
   depends_on:
-    - mysql
+    mysql:
+      condition: service_healthy
   profiles:
     - flyway
   networks:
@@ -20,7 +21,8 @@ x-schemaspy-cmd: &schemaspy-cmd
   environment:
     SCHEMASPY_OUTPUT: /output
   depends_on:
-    - mysql
+    mysql:
+      condition: service_healthy
   profiles:
     - schemaspy
   networks:
@@ -64,6 +66,12 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       TZ: ${TZ}
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      start_period: "10s" # 起動までの時間
+      retries: 3          # 許容する失敗回数
+      timeout: "5s"       # 許容するレスポンスタイム
+      interval: "60s"     # ヘルスチェックの間隔
 
   mysql-test:
     <<: *mysql-base
@@ -74,6 +82,12 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}_test
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       TZ: ${TZ}
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      start_period: "10s" # 起動までの時間
+      retries: 3          # 許容する失敗回数
+      timeout: "5s"       # 許容するレスポンスタイム
+      interval: "60s"     # ヘルスチェックの間隔
 
   flyway-cmd:
     <<: *flyway-cmd

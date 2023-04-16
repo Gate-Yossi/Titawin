@@ -10,10 +10,7 @@
 ```bash
 git clone git@github.com:Gate-Yossi/Titawin.git
 cd Titawin/app
-docker compose build
-docker compose up -d
-docker compose run --rm flyway-baseline
-docker compose run --rm flyway-migrate
+make setup
 ```
 
 ブラウザで `http://localhost:8080` にアクセスする。
@@ -21,16 +18,16 @@ docker compose run --rm flyway-migrate
 # Test
 
 ```bash
-docker compose run --rm flyway-cmd info     -configFiles=/flyway/conf/flyway-test.conf
-docker compose run --rm flyway-cmd baseline -configFiles=/flyway/conf/flyway-test.conf
-docker compose run --rm flyway-cmd migrate  -configFiles=/flyway/conf/flyway-test.conf
-docker-compose run web sh -c "cd /var/www/application/tests && /var/www/vendor/bin/phpunit"
+make setup_test_db
+make test
 ```
 
 # Schemaspy
 
+migrateする度に更新されます。
+
 ```bash
-docker compose run --rm schemaspy-cmd
+make setup_db
 ```
 
 # Xhprof
