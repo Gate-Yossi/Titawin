@@ -2,7 +2,7 @@ SHELL = /bin/bash
 WOKR_DIR = ./app
 .DEFAULT_GOAL := help
 
-.PHONY: setup ps build up down setup_db setup_test_db test
+.PHONY: setup ps build up down setup_db setup_test_db test clean
 
 setup:
 	@make build
@@ -41,3 +41,7 @@ setup_test_db:
 test:
 	cd $(WOKR_DIR) \
 	&& docker-compose run web sh -c "cd /var/www/application/tests && /var/www/vendor/bin/phpunit"
+
+clean:
+	cd $(WOKR_DIR) \
+	&& docker-compose down --rmi all --volumes --remove-orphans
