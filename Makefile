@@ -63,6 +63,7 @@ clean:
 	&& docker-compose down --rmi all --volumes --remove-orphans
 
 # help
+.PHONY: help
 help:
 	@grep -B 2 -E '^[a-zA-Z_-]+:' Makefile \
 	| grep -v '.PHONY' \
