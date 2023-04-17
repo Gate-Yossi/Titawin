@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[makeコマンドにcleanとhelpターゲットを追加](https://yossi-note.com/added_clean_and_help_to_make_command/)
+[dockerでPrometheusによる監視環境の構築](https://yossi-note.com/building_a_monitoring_environment_using_prometheus_with_docker/)
 
 ## Usage
 
@@ -44,3 +44,7 @@ make setup_db
 ## Xhprof
 
 ブラウザで `http://localhost:8080/xhprof/?dir=/var/log/xhprof` にアクセスする。
+
+## Prometheus
+
+ブラウザで `http://localhost:9090/` にアクセスする。
