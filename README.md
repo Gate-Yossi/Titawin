@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[dockerでPrometheusによる監視環境の構築](https://yossi-note.com/building_a_monitoring_environment_using_prometheus_with_docker/)
+[dockerで構築するPrometheusとGrafana連携](https://yossi-note.com/Prometheus_and_Grafana_integration_built_with_docker/)
 
 ## Usage
 
@@ -48,3 +48,7 @@ make setup_db
 ## Prometheus
 
 ブラウザで `http://localhost:9090/` にアクセスする。
+
+## Grafana
+
+ブラウザで `http://localhost:3000/` にアクセスする。
