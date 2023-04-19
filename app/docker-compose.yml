@@ -50,10 +50,12 @@ services:
       - ./web/info.php:/var/www/html/info.php
       - ./web/.htaccess:/var/www/html/.htaccess
       - ./web/httpd.conf:/etc/httpd/conf/httpd.conf
+      - ./web/server-status.conf:/etc/httpd/conf.d/server-status.conf
       - ./web/xhprof-html.conf:/etc/httpd/conf.modules.d/xhprof-html.conf
       - ./web/xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
     ports:
       - 8080:80
+      - 9117:9117
     networks:
       - net
 
@@ -90,21 +92,26 @@ services:
       interval: "60s"     # ヘルスチェックの間隔
 
   flyway-cmd:
+    container_name: flyway-cmd
     <<: *flyway-cmd
 
   flyway-baseline:
+    container_name: flyway-baseline
     <<: *flyway-cmd
     command: baseline
 
   flyway-migrate:
+    container_name: flyway-migrate
     <<: *flyway-cmd
     command: migrate
 
   flyway-info:
+    container_name: flyway-info
     <<: *flyway-cmd
     command: info
 
   schemaspy-cmd:
+    container_name: schemaspy-cmd
     <<: *schemaspy-cmd
 
   prometheus:
@@ -114,12 +121,16 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - '9090:9090'
+    networks:
+      - net
 
   grafana:
     build: ./grafana
     container_name: grafana
     ports:
       - "3000:3000"
+    networks:
+      - net
 
 networks:
   net:
