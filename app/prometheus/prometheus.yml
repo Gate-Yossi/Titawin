@@ -4,3 +4,6 @@ scrape_configs:
   - job_name: 'docker-for-mac'
     static_configs:
       - targets: ['docker.for.mac.host.internal:9323']
+  - job_name: 'web'
+    static_configs:
+      - targets: ['web:9117']
