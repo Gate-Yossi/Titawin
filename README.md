@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[dockerで構築するPrometheusとGrafana連携](https://yossi-note.com/Prometheus_and_Grafana_integration_built_with_docker/)
+[Dockerで作る開発環境：Apache Exporterを使用してApacheのメトリクスを可視化する方法](How_to_visualize_Apache_metrics_using_Apache_Exporter)
 
 ## Usage
 
@@ -52,3 +52,8 @@ make setup_db
 ## Grafana
 
 ブラウザで `http://localhost:3000/` にアクセスする。
+
+| target metrics | template id |
+| -- | -- |
+| docker deamon | 1229 |
+| apache | 3894 |
