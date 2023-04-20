@@ -33,6 +33,7 @@ x-mysql: &mysql-base
   platform: linux/x86_64
   volumes:
     - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./mysql/init_scripts:/docker-entrypoint-initdb.d
   networks:
     - net
 
@@ -70,10 +71,10 @@ services:
       TZ: ${TZ}
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      start_period: "10s" # 起動までの時間
+      start_period: "30s" # 起動までの時間
       retries: 3          # 許容する失敗回数
       timeout: "5s"       # 許容するレスポンスタイム
-      interval: "60s"     # ヘルスチェックの間隔
+      interval: "30s"     # ヘルスチェックの間隔
 
   mysql-test:
     <<: *mysql-base
@@ -131,6 +132,21 @@ services:
       - "3000:3000"
     networks:
       - net
+
+  mysqld-exporter:
+    build: ./mysqld-exporter
+    container_name: mysqld-exporter
+    command:
+      - --collect.info_schema.tablestats
+    environment:
+      - DATA_SOURCE_NAME=${MYSQL_EXPORTER_USER}:${MYSQL_EXPORTER_PASSWORD}@${MYSQL_EXPORTER_TARGET}
+    ports:
+      - 9104:9104
+    networks:
+      - net
+    depends_on:
+      mysql:
+        condition: service_healthy
 
 networks:
   net:
