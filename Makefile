@@ -56,6 +56,12 @@ test:
 	cd $(WOKR_DIR) \
 	&& docker-compose run web sh -c "cd /var/www/application/tests && /var/www/vendor/bin/phpunit"
 
+# 負荷試験の実施
+.PHONY: run_k6
+run_k6:
+	cd $(WOKR_DIR) \
+	&& docker compose run --rm -T k6-cmd run - < k6/scripts/http_get.js
+
 # コンテナの削除
 .PHONY: clean
 clean:
