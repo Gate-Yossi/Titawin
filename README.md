@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：MySQL Exporterを使用してMySQLのメトリクスを可視化する方法](How_to_Visualize_MySQL_Metrics_Using_MySQL_Exporter)
+[Dockerで作る開発環境：k6で負荷試験とGrafanaによる可視化を試す](https://yossi-note.com/try_load_test_and_visualization_with_grafana_with_k6/)
 
 ## Usage
 
@@ -58,3 +58,4 @@ make setup_db
 | docker deamon | 1229 |
 | apache | 3894 |
 | mysql | 7362 |
+| k6 | 2587 |
