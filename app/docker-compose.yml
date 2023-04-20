@@ -139,7 +139,7 @@ services:
     command:
       - --collect.info_schema.tablestats
     environment:
-      - DATA_SOURCE_NAME=${MYSQL_EXPORTER_USER}:${MYSQL_EXPORTER_PASSWORD}@${MYSQL_EXPORTER_TARGET}
+      DATA_SOURCE_NAME: ${MYSQL_EXPORTER_USER}:${MYSQL_EXPORTER_PASSWORD}@${MYSQL_EXPORTER_TARGET}
     ports:
       - 9104:9104
     networks:
