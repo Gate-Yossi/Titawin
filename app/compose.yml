@@ -56,9 +56,14 @@ services:
       - ./web/xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
     ports:
       - 8080:80
-      - 9117:9117
     networks:
       - net
+    healthcheck:
+      test: "curl -f http://localhost/ || exit 1"
+      start_period: 30s
+      retries: 3
+      timeout: 10s
+      interval: 10s
 
   mysql:
     <<: *mysql-base
@@ -132,6 +137,23 @@ services:
       - "3000:3000"
     networks:
       - net
+
+  apache-exporter:
+    build: ./apache-exporter
+    container_name: apache-exporter
+    privileged: true
+    ports:
+      - mode: ingress
+        target: 9117
+        published: "9117"
+        protocol: tcp
+    restart: unless-stopped
+    entrypoint: /bin/apache_exporter --scrape_uri="http://web/server-status?auto"
+    networks:
+      - net
+    depends_on:
+      web:
+        condition: service_healthy
 
   mysqld-exporter:
     build: ./mysqld-exporter

@@ -58,15 +58,6 @@ RUN cd /var/www/ \
 # xdebug
 RUN pecl install xdebug-3.1.6
 
-# apache_exporter
-RUN useradd --system --shell /sbin/nologin prometheus \
- && wget https://github.com/Lusitaniae/apache_exporter/releases/download/v0.13.3/apache_exporter-0.13.3.linux-amd64.tar.gz \
- && tar xvzf apache_exporter-0.13.3.linux-amd64.tar.gz \
- && cd apache_exporter-0.13.3.linux-amd64 \
- && cp apache_exporter /usr/local/bin/
-COPY ./prometheus-httpd.service /etc/systemd/system/prometheus-httpd.service
-RUN systemctl enable prometheus-httpd
-
 # httpd
 RUN systemctl enable httpd
 

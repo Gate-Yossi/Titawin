@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：k6で負荷試験とGrafanaによる可視化を試す](https://yossi-note.com/try_load_test_and_visualization_with_grafana_with_k6/)
+[Dockerで作る開発環境：apache exporterを別サービスに切り出す](https://yossi-note.com/cut_out_apache_exporter_to_another_service/)
 
 ## Usage
 
