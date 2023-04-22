@@ -4,9 +4,9 @@ scrape_configs:
   - job_name: 'docker-for-mac'
     static_configs:
       - targets: ['docker.for.mac.host.internal:9323']
-  - job_name: 'web'
+  - job_name: 'apache'
     static_configs:
-      - targets: ['web:9117']
+      - targets: ['apache-exporter:9117']
   - job_name: 'mysql'
     static_configs:
       - targets: ['mysqld-exporter:9104']
