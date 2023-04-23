@@ -49,6 +49,7 @@ services:
       - ./web/CodeIgniter-3.1.13/system:/var/www/system
       - ./web/index.php:/var/www/html/index.php
       - ./web/info.php:/var/www/html/info.php
+      - ./web/healthcheck.txt:/var/www/html/healthcheck.txt
       - ./web/.htaccess:/var/www/html/.htaccess
       - ./web/httpd.conf:/etc/httpd/conf/httpd.conf
       - ./web/server-status.conf:/etc/httpd/conf.d/server-status.conf
@@ -59,7 +60,7 @@ services:
     networks:
       - net
     healthcheck:
-      test: "curl -f http://localhost/ || exit 1"
+      test: "curl -f http://localhost/healthcheck.txt || exit 1"
       start_period: 30s
       retries: 3
       timeout: 10s
