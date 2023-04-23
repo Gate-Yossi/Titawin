@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：apache exporterを別サービスに切り出す](https://yossi-note.com/cut_out_apache_exporter_to_another_service/)
+[Dockerで作る開発環境：apache exporterを別サービスに切り出す](https://yossi-note.com/fix_apache_health_check_path_to_simple_file/)
 
 ## Usage
 
