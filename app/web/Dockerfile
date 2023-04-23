@@ -10,7 +10,8 @@ RUN yum update -y \
         httpd \
         wget \
         git \
-        graphviz
+        graphviz \
+        unzip
 
 # PHP
 RUN yum install -y 'http://rpms.famillecollet.com/enterprise/remi-release-7.rpm'
