@@ -13,17 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $hook['pre_controller'] = array(
-    'class'    => 'MyTidewaysXhprof',
-    'function' => 'enable',
-    'filename' => 'tideways_xhprof.php',
-    'filepath' => 'hooks',
-    'params'   => array()
-);
-
-$hook['post_controller'] = array(
-    'class'    => 'MyTidewaysXhprof',
-    'function' => 'disable',
-    'filename' => 'tideways_xhprof.php',
+    'class'    => 'MyXhgui',
+    'function' => 'start',
+    'filename' => 'xhgui.php',
     'filepath' => 'hooks',
     'params'   => array()
 );
