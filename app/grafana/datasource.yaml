@@ -1,0 +1,13 @@
+apiVersion: 1
+
+datasources:
+
+  - name: Prometheus
+    type: prometheus
+    url: http://prometheus:9090
+
+  # 起動後に再起動をしないとdatabaseが読み込まれない？
+  - name: InfluxDB
+    type: influxdb
+    database: k6
+    url: http://influxdb:8086
