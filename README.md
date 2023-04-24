@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：xhguiの導入](https://yossi-note.com/installing_xhgui/)
+[Dockerで作る開発環境：grafanaのdatasource.yamlを導入](https://yossi-note.com/introduce_grafana_datasource/)
 
 ## Usage
 
