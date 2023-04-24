@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：apache exporterを別サービスに切り出す](https://yossi-note.com/fix_apache_health_check_path_to_simple_file/)
+[Dockerで作る開発環境：xhguiの導入](https://yossi-note.com/installing_xhgui/)
 
 ## Usage
 
@@ -44,6 +44,10 @@ make setup_db
 ## Xhprof
 
 ブラウザで `http://localhost:8080/xhprof/?dir=/var/log/xhprof` にアクセスする。
+
+## Xhgui
+
+ブラウザで `http://localhost:8142/` にアクセスする。
 
 ## Prometheus
 
