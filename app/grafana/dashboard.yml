@@ -1,0 +1,46 @@
+apiVersion: 1
+
+providers:
+  - name: 'docker engine'       # Dashboardの「名前」
+    orgId: 1                    # デフォルトのままで
+    folder: 'Service'           # Dashboardが格納される「フォルダ名」
+    type: file                  # デフォルトのままで
+    disableDeletion: false      # Dashboardの「削除可否」
+    updateIntervalSeconds: 10   # Dashboardの「更新頻度」
+    allowUiUpdates: false       # Dashboardの「UI変更可否」
+    options:
+      path: /var/lib/grafana/dashboards/docker_engine_metrics.json    # dashboardの「jsonファイルパス」
+      foldersFromFilesStructure: false                      # デフォルトのままで
+
+  - name: 'apache'              # Dashboardの「名前」
+    orgId: 1                    # デフォルトのままで
+    folder: 'Service'           # Dashboardが格納される「フォルダ名」
+    type: file                  # デフォルトのままで
+    disableDeletion: false      # Dashboardの「削除可否」
+    updateIntervalSeconds: 10   # Dashboardの「更新頻度」
+    allowUiUpdates: false       # Dashboardの「UI変更可否」
+    options:
+      path: /var/lib/grafana/dashboards/apache.json    # dashboardの「jsonファイルパス」
+      foldersFromFilesStructure: false                      # デフォルトのままで
+
+  - name: 'mysql'               # Dashboardの「名前」
+    orgId: 1                    # デフォルトのままで
+    folder: 'Service'           # Dashboardが格納される「フォルダ名」
+    type: file                  # デフォルトのままで
+    disableDeletion: false      # Dashboardの「削除可否」
+    updateIntervalSeconds: 10   # Dashboardの「更新頻度」
+    allowUiUpdates: false       # Dashboardの「UI変更可否」
+    options:
+      path: /var/lib/grafana/dashboards/mysql.json    # dashboardの「jsonファイルパス」
+      foldersFromFilesStructure: false                      # デフォルトのままで
+
+  - name: 'k6'                  # Dashboardの「名前」
+    orgId: 1                    # デフォルトのままで
+    folder: 'Service'           # Dashboardが格納される「フォルダ名」
+    type: file                  # デフォルトのままで
+    disableDeletion: false      # Dashboardの「削除可否」
+    updateIntervalSeconds: 10   # Dashboardの「更新頻度」
+    allowUiUpdates: false       # Dashboardの「UI変更可否」
+    options:
+      path: /var/lib/grafana/dashboards/k6.json    # dashboardの「jsonファイルパス」
+      foldersFromFilesStructure: false                      # デフォルトのままで

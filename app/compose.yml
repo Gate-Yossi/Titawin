@@ -166,6 +166,8 @@ services:
     build: ./grafana
     container_name: grafana
     volumes:
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - ./grafana/dashboard.yml:/etc/grafana/provisioning/dashboards/dashboard.yml
       - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
     ports:
       - "3000:3000"
