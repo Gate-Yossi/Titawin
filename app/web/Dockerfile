@@ -22,6 +22,7 @@ RUN yum install -y php74-php-pear
 RUN yum install -y php74-php-devel
 RUN yum install -y php74-php-mbstring
 RUN yum install -y php74-php-mysqli
+RUN yum install -y php74-php-memcached
 RUN ln -s /usr/bin/php74 /usr/bin/php \
  && ln -s /opt/remi/php74/root/usr/bin/phpize     /usr/bin/phpize \
  && ln -s /opt/remi/php74/root/usr/bin/php-config /usr/bin/php-config \
