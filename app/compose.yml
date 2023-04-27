@@ -66,6 +66,14 @@ services:
       timeout: 10s
       interval: 10s
 
+  memcached:
+    build: ./memcached
+    container_name: memcached
+    ports:
+      - "11211:11211"
+    networks:
+      - net
+
   mysql:
     <<: *mysql-base
     container_name: mysql
