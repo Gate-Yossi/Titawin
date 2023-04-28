@@ -199,6 +199,16 @@ services:
       web:
         condition: service_healthy
 
+  memcached-exporter:
+    build: ./memcached-exporter
+    container_name: memcached-exporter
+    restart: unless-stopped
+    command: --memcached.address memcached:11211
+    ports:
+      - 9150:9150
+    networks:
+      - net
+
   mysqld-exporter:
     build: ./mysqld-exporter
     container_name: mysqld-exporter

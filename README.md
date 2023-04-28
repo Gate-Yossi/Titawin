@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：Memcahcedの導入](https://yossi-note.com/introduce_memcached/)
+[Dockerで作る開発環境：memcahced-exporterの導入](https://yossi-note.com/introduce_memcached_exporter/)
 
 ## Usage
 
@@ -62,4 +62,5 @@ make setup_db
 | docker deamon | 1229 |
 | apache | 3894 |
 | mysql | 7362 |
+| memcached | 3063 |
 | k6 | 2587 |

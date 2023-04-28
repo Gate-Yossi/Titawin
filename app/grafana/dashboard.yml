@@ -23,6 +23,17 @@ providers:
       path: /var/lib/grafana/dashboards/apache.json    # dashboardの「jsonファイルパス」
       foldersFromFilesStructure: false                      # デフォルトのままで
 
+  - name: 'memcached'           # Dashboardの「名前」
+    orgId: 1                    # デフォルトのままで
+    folder: 'Service'           # Dashboardが格納される「フォルダ名」
+    type: file                  # デフォルトのままで
+    disableDeletion: false      # Dashboardの「削除可否」
+    updateIntervalSeconds: 10   # Dashboardの「更新頻度」
+    allowUiUpdates: false       # Dashboardの「UI変更可否」
+    options:
+      path: /var/lib/grafana/dashboards/memcached.json    # dashboardの「jsonファイルパス」
+      foldersFromFilesStructure: false                    # デフォルトのままで
+
   - name: 'mysql'               # Dashboardの「名前」
     orgId: 1                    # デフォルトのままで
     folder: 'Service'           # Dashboardが格納される「フォルダ名」
