@@ -45,18 +45,16 @@ services:
     platform: linux/x86_64
     privileged: true
     volumes:
-      - ./web/CodeIgniter-3.1.13/application:/var/www/application
-      - ./web/CodeIgniter-3.1.13/system:/var/www/system
-      - ./web/index.php:/var/www/html/index.php
-      - ./web/info.php:/var/www/html/info.php
       - ./web/healthcheck.txt:/var/www/html/healthcheck.txt
       - ./web/.htaccess:/var/www/html/.htaccess
       - ./web/httpd.conf:/etc/httpd/conf/httpd.conf
       - ./web/server-status.conf:/etc/httpd/conf.d/server-status.conf
       - ./web/xhprof-html.conf:/etc/httpd/conf.modules.d/xhprof-html.conf
-      - ./web/xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
+      - ./web/php-fpm.conf:/etc/httpd/conf.modules.d/php-fpm.conf
     ports:
       - 8080:80
+    depends_on:
+      - php-fpm
     networks:
       - net
     healthcheck:
@@ -65,6 +63,18 @@ services:
       retries: 3
       timeout: 10s
       interval: 10s
+
+  php-fpm:
+    build: ./php-fpm
+    container_name: php-fpm
+    volumes:
+      - ./php-fpm/CodeIgniter-3.1.13/application:/var/www/application
+      - ./php-fpm/CodeIgniter-3.1.13/system:/var/www/system
+      - ./php-fpm/index.php:/var/www/html/index.php
+      - ./php-fpm/info.php:/var/www/html/info.php
+      - ./php-fpm/xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
+    networks:
+      - net
 
   memcached:
     build: ./memcached
