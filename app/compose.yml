@@ -73,6 +73,7 @@ services:
       - ./php-fpm/index.php:/var/www/html/index.php
       - ./php-fpm/info.php:/var/www/html/info.php
       - ./php-fpm/xdebug.ini:/etc/opt/remi/php74/php.d/xdebug.ini
+      - ./php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
     networks:
       - net
 
@@ -208,6 +209,18 @@ services:
     depends_on:
       web:
         condition: service_healthy
+
+  php-fpm-exporter:
+    build: ./php-fpm-exporter
+    container_name: php-fpm-exporter
+    restart: unless-stopped
+    environment:
+      PHP_FPM_SCRAPE_URI: "tcp://php-fpm:9000/status"
+      PHP_FPM_LOG_LEVEL: "debug"
+    ports:
+      - 9253:9253
+    networks:
+      - net
 
   memcached-exporter:
     build: ./memcached-exporter
