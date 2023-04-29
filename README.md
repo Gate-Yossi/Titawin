@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：memcahced-exporterの導入](https://yossi-note.com/introduce_memcached_exporter/)
+[Dockerで作る開発環境：php-fpmの導入](https://yossi-note.com/introducing_php_fpm/)
 
 ## Usage
 
@@ -40,10 +40,6 @@ migrateする度に更新されます。
 ```bash
 make setup_db
 ```
-
-## Xhprof
-
-ブラウザで `http://localhost:8080/xhprof/?dir=/var/log/xhprof` にアクセスする。
 
 ## Xhgui
 
