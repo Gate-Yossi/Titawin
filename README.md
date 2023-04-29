@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：php-fpmの導入](https://yossi-note.com/introducing_php_fpm/)
+[Dockerで作る開発環境：php-fpm-exporterの導入](https://yossi-note.com/introducing_php_fpm_exporter/)
 
 ## Usage
 
@@ -58,5 +58,6 @@ make setup_db
 | docker deamon | 1229 |
 | apache | 3894 |
 | mysql | 7362 |
+| php-fpm | 4912 |
 | memcached | 3063 |
 | k6 | 2587 |
