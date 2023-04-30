@@ -45,6 +45,17 @@ providers:
       path: /var/lib/grafana/dashboards/php-fpm.json
       foldersFromFilesStructure: false
 
+  - name: 'redis'
+    orgId: 1
+    folder: 'Service'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: false
+    options:
+      path: /var/lib/grafana/dashboards/redis.json
+      foldersFromFilesStructure: false
+
   - name: 'memcached'           # Dashboardの「名前」
     orgId: 1                    # デフォルトのままで
     folder: 'Service'           # Dashboardが格納される「フォルダ名」
