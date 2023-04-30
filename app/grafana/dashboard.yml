@@ -23,6 +23,17 @@ providers:
       path: /var/lib/grafana/dashboards/apache.json    # dashboardの「jsonファイルパス」
       foldersFromFilesStructure: false                      # デフォルトのままで
 
+  - name: 'nginx'
+    orgId: 1
+    folder: 'Service'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: false
+    options:
+      path: /var/lib/grafana/dashboards/nginx.json
+      foldersFromFilesStructure: false
+
   - name: 'php-fpm'
     orgId: 1
     folder: 'Service'

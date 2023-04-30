@@ -222,6 +222,18 @@ services:
       web:
         condition: service_healthy
 
+  nginx-exporter:
+    build: ./nginx-exporter
+    container_name: nginx-exporter
+    ports:
+      - "9113:9113"
+    restart: unless-stopped
+    entrypoint: nginx-prometheus-exporter -nginx.scrape-uri=http://nginx/nginx_status
+    networks:
+      - net
+    depends_on:
+      - nginx
+
   php-fpm-exporter:
     build: ./php-fpm-exporter
     container_name: php-fpm-exporter
