@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：nginx-exporterの導入](https://yossi-note.com/introducing_nginx_exporer/)
+[Dockerで作る開発環境：Redisの導入](https://yossi-note.com/introducing_redis/)
 
 ## Usage
 

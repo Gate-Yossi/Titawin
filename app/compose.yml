@@ -97,6 +97,14 @@ services:
     networks:
       - net
 
+  redis:
+    build: ./redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - net
+
   mysql:
     <<: *mysql-base
     container_name: mysql
