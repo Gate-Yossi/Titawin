@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：php-fpm-exporterの導入](https://yossi-note.com/introducing_php_fpm_exporter/)
+[Dockerで作る開発環境：nginxの導入](https://yossi-note.com/introducing_nginx/)
 
 ## Usage
 
@@ -24,7 +24,11 @@ make help
 make setup
 ```
 
+### apache
 ブラウザで `http://localhost:8080` にアクセスする。
+
+### nginx
+ブラウザで `http://localhost:8081` にアクセスする。
 
 ## Test
 
