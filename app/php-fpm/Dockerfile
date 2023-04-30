@@ -40,6 +40,9 @@ RUN cd /var/www/ \
  && cd ./xhprof-html \
  && sed -i "81c\$xhprof_runs_impl = new XHProfRuns_Default('\/var\/log\/xhprof');" callgraph.php
 
+RUN pecl install redis \
+ && docker-php-ext-enable redis
+
 RUN pecl install memcached \
  && docker-php-ext-enable memcached
 
