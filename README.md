@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：nginxの導入](https://yossi-note.com/introducing_nginx/)
+[Dockerで作る開発環境：nginx-exporterの導入](https://yossi-note.com/introducing_nginx_exporer/)
 
 ## Usage
 
@@ -61,6 +61,7 @@ make setup_db
 | -- | -- |
 | docker deamon | 1229 |
 | apache | 3894 |
+| nginx | 12708 |
 | mysql | 7362 |
 | php-fpm | 4912 |
 | memcached | 3063 |
