@@ -1,6 +1,7 @@
 SHELL = /bin/bash
 WOKR_DIR = ./app
 .DEFAULT_GOAL := help
+RUN_DATETIME = $(shell date "+%Y%m%d_%H%M%S")
 
 # アプリのビルドから起動
 .PHONY: setup
@@ -67,6 +68,12 @@ run_k6:
 clean:
 	cd $(WOKR_DIR) \
 	&& docker-compose down --rmi all --volumes --remove-orphans
+
+# 静的解析の実施
+.PHONY: run_phan
+run_phan:
+	cd $(WOKR_DIR) \
+	&& docker compose run --rm phan-cmd -po /mnt/log/analysis_$(RUN_DATETIME).log
 
 # help
 .PHONY: help
