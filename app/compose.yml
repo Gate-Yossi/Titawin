@@ -254,6 +254,17 @@ services:
     networks:
       - net
 
+  redis-exporter:
+    build: ./redis-exporter
+    container_name: redis-exporter
+    restart: unless-stopped
+    environment:
+      - REDIS_ADDR=redis:6379
+    ports:
+      - 9121:9121
+    networks:
+      - net
+
   memcached-exporter:
     build: ./memcached-exporter
     container_name: memcached-exporter
