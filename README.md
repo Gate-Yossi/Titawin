@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：Redisの導入](https://yossi-note.com/introducing_redis/)
+[Dockerで作る開発環境：Redis-exporterの導入](https://yossi-note.com/introducing_redis_exporter/)
 
 ## Usage
 
@@ -64,5 +64,6 @@ make setup_db
 | nginx | 12708 |
 | mysql | 7362 |
 | php-fpm | 4912 |
+| redis | 763 |
 | memcached | 3063 |
 | k6 | 2587 |
