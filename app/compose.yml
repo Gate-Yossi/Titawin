@@ -315,5 +315,15 @@ services:
     profiles:
       - k6
 
+  phan-cmd:
+    build: ./phan
+    container_name: phan
+    volumes:
+      - ./php-fpm/CodeIgniter-3.1.13/application:/mnt/src/app
+      - ./phan/.phan/config.php:/mnt/src/.phan/config.php
+      - ./phan/log:/mnt/log
+    profiles:
+      - phan
+
 networks:
   net:

@@ -1,0 +1,1 @@
+FROM phanphp/phan:latest
