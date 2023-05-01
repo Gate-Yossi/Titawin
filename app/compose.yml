@@ -315,6 +315,15 @@ services:
     profiles:
       - k6
 
+  phpstan-cmd:
+    build: ./phpstan
+    container_name: phpstan
+    volumes:
+      - ./php-fpm/CodeIgniter-3.1.13/application:/app/src
+      - ./phpstan/phpstan.neon:/app/phpstan.neon
+    profiles:
+      - phpstan
+
   phan-cmd:
     build: ./phan
     container_name: phan
