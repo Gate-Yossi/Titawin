@@ -70,6 +70,12 @@ clean:
 	&& docker-compose down --rmi all --volumes --remove-orphans
 
 # 静的解析の実施
+.PHONY: run_phpstan
+run_phpstan:
+	cd $(WOKR_DIR) \
+	&& docker compose run --rm phpstan-cmd > ./phpstan/log/analysis_$(RUN_DATETIME).log
+
+# 静的解析の実施
 .PHONY: run_phan
 run_phan:
 	cd $(WOKR_DIR) \
