@@ -8,7 +8,7 @@ Titawin
 
 ## URL
 
-[Dockerで作る開発環境：phanの導入](https://yossi-note.com/introducing_phan/)
+[Dockerで作る開発環境：phpstanの導入](https://yossi-note.com/introducing_phpstan/)
 
 ## Usage
 
@@ -43,6 +43,20 @@ migrateする度に更新されます。
 
 ```bash
 make setup_db
+```
+
+## PHPStan
+
+```bash
+make run_phpstan
+```
+
+### issue
+実行すると下記のエラーが表示される。
+出力結果には問題がないため、無視している。
+
+```bash
+make: *** [run_phpstan] Error 1
 ```
 
 ## Phan
