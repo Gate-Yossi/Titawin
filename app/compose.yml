@@ -315,6 +315,15 @@ services:
     profiles:
       - k6
 
+  psalm-cmd:
+    build: ./psalm
+    container_name: psalm
+    volumes:
+      - ./php-fpm/CodeIgniter-3.1.13/application:/app/src
+      - ./psalm/psalm.xml:/app/psalm.xml
+    profiles:
+      - psalm
+
   phpstan-cmd:
     build: ./phpstan
     container_name: phpstan

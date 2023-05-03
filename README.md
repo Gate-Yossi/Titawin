@@ -4,11 +4,11 @@ Titawin
 読み方:ティタウィン
 
 ## Description
-[よっしーノート](https://yossi-note.com/)に記載のソースを管理しているリポジトリです。
+[よっしーノート](https://yossi-note.com/)のDockerで作る開発環境関連のソースを管理しているリポジトリです。
 
 ## URL
 
-[Dockerで作る開発環境：phpstanの導入](https://yossi-note.com/introducing_phpstan/)
+[Dockerで作る開発環境：psalmの導入](https://yossi-note.com/introducing_psalm/)
 
 ## Usage
 
@@ -43,6 +43,20 @@ migrateする度に更新されます。
 
 ```bash
 make setup_db
+```
+
+## psalm
+
+```bash
+make run_psalm
+```
+
+### issue
+実行すると下記のエラーが表示される。
+出力結果には問題がないため、無視している。
+
+```bash
+make: *** [run_psalm] Error 1
 ```
 
 ## PHPStan
